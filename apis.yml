@@ -1,19 +1,45 @@
 aid: woodstock
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/woodstock.png
 name: Woodstock
-description: Woodstock is a company surfaced as a portfolio company of kindred-ventures and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Woodstock (Woodstock K.K., Tokyo) is a Japanese investment platform
+  offering zero-commission, 24-hour US stock trading in JPY with fractional shares
+  down to 0.0001-share increments. A Financial Products Intermediary registered
+  with the Kanto Financial Bureau (No. 965), with customer assets held by
+  affiliated broker AlpacaJapan, Woodstock's programmatic surface is a hosted
+  Model Context Protocol server that lets AI agents like Claude, ChatGPT, and
+  Grok manage portfolios, research US stocks, and place real trades after OAuth
+  plus passkey authorization. Backed by Kindred Ventures, Coinbase, and Sony.
 url: https://raw.githubusercontent.com/api-evangelist/woodstock/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - kindred-ventures
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: hosted-mcp-server
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
+- Investing
+- Stock Trading
+- Brokerage
+- FinTech
+- Japan
+- MCP
+- AI Agents
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -23,3 +49,38 @@ maintainers:
 common:
 - type: Website
   url: https://woodstock.co/
+- type: MCPServer
+  url: mcp/woodstock-mcp.yml
+- type: WellKnown
+  url: well-known/woodstock-well-known.yml
+- type: Authentication
+  url: authentication/woodstock-authentication.yml
+- type: Conformance
+  url: conformance/woodstock-conformance.yml
+- type: LLMsTxt
+  url: llms/woodstock-llms.txt
+- type: DomainSecurity
+  url: security/woodstock-domain-security.yml
+- type: Documentation
+  url: https://woodstock.co/ja/mcp
+- type: GettingStarted
+  url: https://woodstock.co/ja/mcp/installation/getting-started
+- type: SignUp
+  url: https://woodstock.co/ja/signup
+- type: Pricing
+  url: https://woodstock.co/ja/fees
+- type: Support
+  url: https://woodstock.co/ja/faq
+- type: Blog
+  url: https://zenn.dev/p/woodstock_tech
+- type: GitHubOrganization
+  url: https://github.com/woodstock-tokyo
+- type: TermsOfService
+  url: https://woodstock.co/ja/legal/term-of-use
+- type: PrivacyPolicy
+  url: https://woodstock.co/ja/legal/privacy-policy
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v1

@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+hosts:
+- host: https://woodstock.co
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://mcp.app.woodstock.co
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: woodstock-mcp-oauth-authorization-server.json
+  - path: /.well-known/oauth-protected-resource/mcp
+    status: 200
+    file: woodstock-mcp-oauth-protected-resource.json
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404

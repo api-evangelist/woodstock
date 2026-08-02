@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: searched
+source: https://mcp.app.woodstock.co/.well-known/oauth-authorization-server
+docs: https://woodstock.co/ja/mcp/installation/getting-started
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+  pkce: required (S256)
+  dynamic_client_registration: true
+  end_user_factor: passkey (WebAuthn) registered in the Woodstock mobile app;
+    no API keys issued
+schemes:
+- name: WoodstockMCPOAuth
+  type: oauth2
+  description: OAuth 2.0 authorization server protecting the hosted MCP endpoint
+    at https://mcp.app.woodstock.co/mcp (RFC 8414 metadata published; RFC 9728
+    protected-resource metadata at /.well-known/oauth-protected-resource/mcp).
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://mcp.app.woodstock.co/authorize
+    tokenUrl: https://mcp.app.woodstock.co/token
+    refreshUrl: https://mcp.app.woodstock.co/token
+    scopes: {}
+  registration_endpoint: https://mcp.app.woodstock.co/register
+  revocation_endpoint: https://mcp.app.woodstock.co/revoke
+  code_challenge_methods:
+  - S256
+  token_endpoint_auth_methods:
+  - client_secret_post
+  - client_secret_basic
+  grant_types:
+  - authorization_code
+  - refresh_token
+  scopes_supported: []
+  bearer_methods:
+  - header
+  sources:
+  - well-known/woodstock-mcp-oauth-authorization-server.json
+  - well-known/woodstock-mcp-oauth-protected-resource.json
+notes: Woodstock publishes no public REST API; the OAuth surface exists to
+  authorize MCP clients. End users authenticate with the passkey they registered
+  in the Woodstock app during account opening (MyNumber Card KYC required).

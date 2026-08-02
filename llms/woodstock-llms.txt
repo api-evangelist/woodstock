@@ -1,0 +1,28 @@
+# Woodstock
+
+> Woodstock (Woodstock K.K., Tokyo) is a Japanese investment platform offering zero-commission, 24-hour US stock trading in JPY with fractional shares (0.0001-share increments). It is a Financial Products Intermediary (Kanto Financial Bureau No. 965) with customer assets held by affiliated broker AlpacaJapan. Its machine surface is a hosted Model Context Protocol (MCP) server that lets AI agents manage portfolios, research US stocks, and place trades on a user's real account after OAuth + passkey authorization.
+
+Woodstock publishes no public REST API; the Woodstock MCP server is the supported programmatic surface. All monetary values are JPY-denominated.
+
+## MCP
+
+- [Woodstock MCP](https://woodstock.co/ja/mcp): Product page for the hosted MCP server
+- [MCP server endpoint](https://mcp.app.woodstock.co/mcp): Streamable HTTP MCP endpoint (OAuth 2.0 + PKCE, dynamic client registration; end-user passkey auth)
+- [Getting started](https://woodstock.co/ja/mcp/installation/getting-started): Setup guides for Claude, ChatGPT, Grok, Codex, Gemini, Cursor, and other clients
+- [OAuth authorization server metadata](https://mcp.app.woodstock.co/.well-known/oauth-authorization-server): RFC 8414 discovery document
+- [Grok plugin manifest](https://github.com/woodstock-tokyo/woodstock-mcp-grok-plugin): Published MCP plugin configuration and capability summary
+
+## Company
+
+- [Website](https://woodstock.co/): Zero-fee US stock investment for Japan
+- [Company profile](https://woodstock.co/ja/company): Woodstock K.K., founded 2021-03-03, CEO Brian Yoon, Azabu-Juban, Tokyo
+- [Fees](https://woodstock.co/ja/fees): Zero trading, FX, custody, and withdrawal fees
+- [FAQ](https://woodstock.co/ja/faq): Support and frequently asked questions
+- [Sign up](https://woodstock.co/ja/signup): Account opening (MyNumber Card KYC, ~1 minute)
+- [Tech blog](https://zenn.dev/p/woodstock_tech): Official engineering blog on Zenn
+- [GitHub organization](https://github.com/woodstock-tokyo): Open-source repos (Go libraries, MCP plugin, Pine Script compiler)
+
+## Legal
+
+- [Terms of service](https://woodstock.co/ja/legal/term-of-use)
+- [Privacy policy](https://woodstock.co/ja/legal/privacy-policy)

@@ -1,0 +1,50 @@
+generated: '2026-07-21'
+method: searched
+source: https://woodstock.co/ja/mcp
+status: published
+server:
+  name: woodstock
+  transport: http
+  url: https://mcp.app.woodstock.co/mcp
+  docs: https://woodstock.co/ja/mcp/installation/getting-started
+  authentication:
+    type: oauth2
+    flow: authorizationCode
+    pkce: S256
+    dynamic_client_registration: true
+    authorization_server_metadata: https://mcp.app.woodstock.co/.well-known/oauth-authorization-server
+    protected_resource_metadata: https://mcp.app.woodstock.co/.well-known/oauth-protected-resource/mcp
+    notes: End-user authentication uses the passkey registered in the Woodstock
+      mobile app; no API keys are issued. Unauthenticated POST to /mcp returns 401.
+  clients_documented:
+  - Claude
+  - ChatGPT
+  - Grok
+  - Codex
+  - Gemini
+  - Cursor
+  - GitHub Copilot CLI
+  - Kimi
+  - Opencode
+  plugin_manifests:
+  - name: woodstock-mcp-grok-plugin
+    url: https://github.com/woodstock-tokyo/woodstock-mcp-grok-plugin
+    config: '{"mcpServers":{"woodstock":{"type":"http","url":"https://mcp.app.woodstock.co/mcp"}}}'
+capabilities:
+  summary: Hosted MCP server for Woodstock, the Japanese zero-commission US stock
+    trading service. Exposes account and funds data (account info, deposit/withdraw
+    history, virtual bank details, estimated US wallet balance), portfolio (held
+    assets, positions by ticker, dividend history), orders and trading (list/inspect
+    orders, pre-check and place market/limit orders by quantity or notional, cancel
+    orders, executions), and US market data (market status/holidays, real-time
+    quotes/trades/snapshots, historical bars, previous close, tradable-symbol
+    checks, fundamentals). All monetary values are JPY-denominated.
+  verified_tool_names:
+  - check_order
+  - check_cancel_order
+  notes: Tool names above are the only ones named verbatim in the provider's
+    published plugin README; the full tool list requires an authenticated session.
+    Trading tools operate on the user's real brokerage account - there is no
+    sandbox mode; pre-check tools let an agent validate before committing. Orders
+    may execute without per-order confirmation depending on agent policy (see the
+    provider's MCP Agent Trading Special Rules).

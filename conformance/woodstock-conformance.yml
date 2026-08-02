@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: searched
+standards:
+- id: oauth2
+  conforms: true
+  evidence: RFC 8414 authorization-server metadata published at
+    https://mcp.app.woodstock.co/.well-known/oauth-authorization-server
+    (authorization_code + refresh_token grants)
+- id: oauth2-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported [S256] in authorization-server metadata
+- id: oauth2-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint https://mcp.app.woodstock.co/register published
+    in RFC 8414 metadata (RFC 7591)
+- id: oauth2-protected-resource-metadata
+  conforms: true
+  evidence: RFC 9728 document at
+    https://mcp.app.woodstock.co/.well-known/oauth-protected-resource/mcp
+- id: mcp
+  conforms: true
+  evidence: hosted streamable-HTTP Model Context Protocol server at
+    https://mcp.app.woodstock.co/mcp, documented at https://woodstock.co/ja/mcp
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on both hosts
+- id: webauthn-passkeys
+  conforms: true
+  evidence: end-user authentication uses passkeys registered in the Woodstock app
+    (provider MCP getting-started docs)
+regulatory:
+- id: jp-financial-products-intermediary
+  conforms: true
+  evidence: Kanto Financial Bureau registration No. 965 (関東財務局長(金仲)第965号);
+    customer assets held by affiliated broker AlpacaJapan (Financial Instruments
+    Business Operator No. 3024); member of Japan Securities Dealers Association
