@@ -14,8 +14,8 @@ server:
     dynamic_client_registration: true
     authorization_server_metadata: https://mcp.app.woodstock.co/.well-known/oauth-authorization-server
     protected_resource_metadata: https://mcp.app.woodstock.co/.well-known/oauth-protected-resource/mcp
-    notes: End-user authentication uses the passkey registered in the Woodstock
-      mobile app; no API keys are issued. Unauthenticated POST to /mcp returns 401.
+    notes: End-user authentication uses the passkey registered in the Woodstock mobile app; no API keys
+      are issued. Unauthenticated POST to /mcp returns 401.
   clients_documented:
   - Claude
   - ChatGPT
@@ -31,20 +31,24 @@ server:
     url: https://github.com/woodstock-tokyo/woodstock-mcp-grok-plugin
     config: '{"mcpServers":{"woodstock":{"type":"http","url":"https://mcp.app.woodstock.co/mcp"}}}'
 capabilities:
-  summary: Hosted MCP server for Woodstock, the Japanese zero-commission US stock
-    trading service. Exposes account and funds data (account info, deposit/withdraw
-    history, virtual bank details, estimated US wallet balance), portfolio (held
-    assets, positions by ticker, dividend history), orders and trading (list/inspect
-    orders, pre-check and place market/limit orders by quantity or notional, cancel
-    orders, executions), and US market data (market status/holidays, real-time
-    quotes/trades/snapshots, historical bars, previous close, tradable-symbol
-    checks, fundamentals). All monetary values are JPY-denominated.
+  summary: Hosted MCP server for Woodstock, the Japanese zero-commission US stock trading service. Exposes
+    account and funds data (account info, deposit/withdraw history, virtual bank details, estimated US
+    wallet balance), portfolio (held assets, positions by ticker, dividend history), orders and trading
+    (list/inspect orders, pre-check and place market/limit orders by quantity or notional, cancel orders,
+    executions), and US market data (market status/holidays, real-time quotes/trades/snapshots, historical
+    bars, previous close, tradable-symbol checks, fundamentals). All monetary values are JPY-denominated.
   verified_tool_names:
   - check_order
   - check_cancel_order
-  notes: Tool names above are the only ones named verbatim in the provider's
-    published plugin README; the full tool list requires an authenticated session.
-    Trading tools operate on the user's real brokerage account - there is no
-    sandbox mode; pre-check tools let an agent validate before committing. Orders
-    may execute without per-order confirmation depending on agent policy (see the
-    provider's MCP Agent Trading Special Rules).
+  notes: Tool names above are the only ones named verbatim in the provider's published plugin README;
+    the full tool list requires an authenticated session. Trading tools operate on the user's real brokerage
+    account - there is no sandbox mode; pre-check tools let an agent validate before committing. Orders
+    may execute without per-order confirmation depending on agent policy (see the provider's MCP Agent
+    Trading Special Rules).
+deployment:
+  mode: remote
+  endpoint: https://mcp.app.woodstock.co/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census
